@@ -1,8 +1,16 @@
 // Plaid backend API integration with Node.js
+const plaid = require('plaid');
+
+const client = new plaid.Client({
+    clientID: PLAID_CLIENT_ID,
+    secret: PLAID_SECRET,
+    env: plaid.environments.sandbox,
+});
+
 app.post('/api/create_link_token', async function (request, response) {
     // Get the client_user_id by searching for the current user
-    const user = await User.find(...);
-    const clientUserId = user.id;
+    // const user = await User.find(...);
+    const clientUserId = 'test-user-id';
     const request = {
       user: {
         // This should correspond to a unique id for the current user.
